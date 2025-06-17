@@ -67,8 +67,9 @@ export default function PerformanceChart({ assessments }) {
               <Line
                 type="monotone"
                 dataKey="score"
-                stroke="hsl(var(--primary))"
+                stroke="#6366F1"
                 strokeWidth={2}
+                connectNulls={true}
               />
             </LineChart>
           </ResponsiveContainer>

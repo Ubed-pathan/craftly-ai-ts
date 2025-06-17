@@ -34,6 +34,8 @@ const OnboardingForm = ({ industries }) => {
   const router = useRouter();
   const [selectedIndustry, setSelectedIndustry] = useState(null);
 
+  // this fuction call when user click on the submit button
+  // it will update the user profile with the data from the form
   const {
     loading: updateLoading,
     fn: updateUserFn,

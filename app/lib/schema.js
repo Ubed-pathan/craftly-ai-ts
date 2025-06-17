@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+// these are zod resolver schemas for validating user input in various forms
 export const onboardingSchema = z.object({
   industry: z.string({
     required_error: "Please select an industry",

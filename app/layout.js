@@ -5,7 +5,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
-// import { checkUser } from "@/lib/checkUser";
 
 const inter = Inter({subsets: ['latin']});
 
@@ -15,7 +14,6 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-    // await checkUser();
   return (
     <ClerkProvider appearance={{
       baseTheme: dark,

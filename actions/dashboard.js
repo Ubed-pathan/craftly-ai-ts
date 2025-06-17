@@ -41,6 +41,7 @@ export async function getIndustryInsights() {
   if (!userId) throw new Error("Unauthorized");
 
   const user = await db.user.findUnique({
+    // clerkUserId: userId it mean when we get userId from clerk auth it gives us the userId but in out schema we assigned it as clerkUserId
     where: { clerkUserId: userId },
     include: {
       industryInsight: true,
