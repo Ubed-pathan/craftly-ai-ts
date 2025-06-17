@@ -1,3 +1,61 @@
+# CraftlyAI
+
+CraftlyAI is a project designed to provide AI-powered solutions for various tasks.  
+This repository contains the source code, configuration, and documentation for the project.
+
+## Features
+
+- AI-driven functionalities
+- Modular and extensible codebase
+- Easy setup and deployment
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version X.X.X or higher)  
+- npm or yarn  
+- (List any other dependencies here)
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/craftlyai.git
+   cd craftlyai
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+
+### Usage
+
+To start the project:
+
+```sh
+npm start
+# or
+yarn start
+```
+
+## Project Structure
+
+- `src/` - Source code
+- `public/` - Static assets
+- `README.md` - Project documentation
+
+## Contributing
+
+Contributions are welcome! Please open issues or submit pull requests.
+
+## License
+
+This project is licensed under the MIT License.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
