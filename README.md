@@ -54,7 +54,7 @@ The application will be available at `http://localhost:3000`
 - **Database**: Prisma ORM
 - **AI**: Google Generative AI
 - **UI Components**: Radix UI
-- **Forms**: React Hook Form, Zod validation
+- **Forms**: React Hook Form
 
 ## 📁 Project Structure
 
@@ -119,10 +119,10 @@ GEMINI_API_KEY=*****
 - Advanced analytics dashboard
 
 ## Contact
-Name:- PATHAN UBEDULLAKHAN HASANKHAN                                                           
+✨ Name:- PATHAN UBEDULLAKHAN HASANKHAN                                                           
 📜 Email:- ubedpathan818@gmail.com                                                                
-🌐 Portfolio:- https://ubedsportfolio.vercel.app/ 
-📱 Linkedin :- https://www.linkedin.com/in/ubed-pathan-35a715242/
+🌐 Portfolio:- https://ubedsportfolio.vercel.app/                
+📱 Linkedin :- https://www.linkedin.com/in/ubed-pathan-35a715242/                           
 🤖 X :- https://x.com/mr_ubed08
 
 ## 📱 Screenshot
