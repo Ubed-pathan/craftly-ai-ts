@@ -1,87 +1,87 @@
 # CraftlyAI - Your AI-Powered Career Assistant
 
-![CraftlyAI Logo](assets/logo.png)
+[![CraftlyAI](https://img.shields.io/badge/Try%20CraftlyAI-Live%20Demo-blue)](https://craftlyai.com)
 
-CraftlyAI is an advanced AI-powered platform designed to revolutionize your job application process and career development. Our intelligent tools help you create professional resumes, craft compelling cover letters, gain valuable industry insights, and prepare effectively for interviews.
+> Professional resume building, cover letter generation, industry insights, and interview preparation powered by AI.
 
-## ✨ Features
+![CraftlyAI Dashboard](assets/dashboard-screenshot.png)
 
-### 📄 AI Resume Builder
-- **Smart Resume Generation**: Create tailored, ATS-optimized resumes in minutes
-- **Multiple Templates**: Choose from professionally designed templates
-- **Keyword Optimization**: AI analysis ensures your resume includes relevant industry keywords
-- **Version Control**: Maintain different versions for various job applications
+## 📱 Live Application
 
-### ✉️ Cover Letter Generator
-- **Personalized Content**: AI-generated cover letters tailored to specific job descriptions
-- **Tone Customization**: Adjust the writing style to match company culture
-- **Quick Adaptation**: Easily modify letters for different positions
+**[https://craftlyai.com](https://craftlyai.com)**
 
-### 🔍 Industry Insights
-- **Market Trends Analysis**: Stay informed about the latest developments in your industry
-- **Salary Benchmarking**: Compare compensation across roles and regions
-- **Skill Gap Analysis**: Identify skills to develop for career advancement
+## ✨ Key Features
 
-### 🎯 Interview Preparation
-- **AI Mock Interviews**: Practice with our AI interviewer that simulates real interview scenarios
-- **Question Prediction**: AI-powered prediction of likely interview questions based on job descriptions
-- **Feedback System**: Receive instant feedback on your responses
-- **Role-Specific Preparation**: Tailored guidance for different positions
+- **AI Resume Builder** - ATS-optimized resumes with professional templates
+- **Cover Letter Generator** - Personalized cover letters tailored to job descriptions
+- **Industry Insights** - Data-driven market trends and salary analysis
+- **Interview Preparation** - AI-powered mock interviews with feedback
+
+![Resume Builder Interface](assets/resume-builder.png)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v14.0.0 or higher)
-- npm (v7.0.0 or higher)
-- A modern web browser
+- Node.js (latest LTS version)
+- npm or yarn
 
-### Installation
+### Quick Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/craftlyai.git
-   cd craftlyai
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/craftlyai.git
+cd craftlyai
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+# Install dependencies
+npm install
+# or
+yarn install
 
-3. Configure environment variables:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your API keys and configuration
-   ```
+# Set up your environment variables
+cp .env.example .env.local
 
-4. Start the application:
-   ```bash
-   npm start
-   ```
+# Run the development server
+npm run dev
+# or
+yarn dev
+```
 
 The application will be available at `http://localhost:3000`
 
-## 📱 Usage Guide
+## 💻 Usage
 
-### Creating a Resume
-1. Navigate to the Resume Builder section
-2. Upload your existing resume or start from scratch
-3. Fill in your professional details or let our AI extract information automatically
-4. Select your preferred template
-5. Review and download your optimized resume
+![Interview Preparation Module](assets/interview-prep.png)
 
-### Generating a Cover Letter
-1. Go to the Cover Letter Generator
-2. Upload the job description
-3. Select your tone preference
-4. Review, edit if needed, and export your personalized cover letter
+Visit our [User Guide](https://craftlyai.com/guide) for detailed instructions on maximizing CraftlyAI for your career advancement.
 
-### Accessing Industry Insights
-1. Visit the Industry Insights dashboard
-2. Select your industry and region
-3. Explore trends, salary data, and recommended skills
+## 🛠️ Technology Stack
 
-### Preparing for Interviews
+- **Frontend**: Next.js 15, React 19, Tailwind CSS 4
+- **Authentication**: Clerk
+- **Database**: Prisma ORM
+- **AI**: Google Generative AI
+- **UI Components**: Radix UI
+- **Forms**: React Hook Form, Zod validation
+
+## 📈 Roadmap
+
+- Mobile application enhancements
+- Integration with major job boards
+- Advanced analytics dashboard
+- Personalized learning recommendations
+
+## 📞 Support
+
+- Email: support@craftlyai.com
+- [Help Center](https://craftlyai.com/support)
+
+## 📜 License
+
+[MIT License](LICENSE)
+
+---
+
+Made with ❤️ by the CraftlyAI Team
 1. Enter the Interview Preparation module
 2. Upload the job description for your upcoming interview
 3. Choose between practice mode or assessment mode

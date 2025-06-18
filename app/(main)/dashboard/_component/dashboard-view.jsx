@@ -91,7 +91,7 @@ const DashboardView = ({ insights }) => {
           <CardContent>
             <div className="text-2xl font-bold">{insights.marketOutlook}</div>
             <p className="text-xs text-muted-foreground">
-              Next update {nextUpdateDistance}
+              Last updated {nextUpdateDistance}
             </p>
           </CardContent>
         </Card>
