@@ -93,19 +93,36 @@ craftlyai/
 └── package.json          # Project dependencies
 ```
 
+## Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=*****
+CLERK_SECRET_KEY=*****
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/onboarding
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
+DATABASE_URL=*****
+GEMINI_API_KEY=*****
+```
+
+### Variable Descriptions:
+- **Clerk Authentication**: Set up your authentication keys and URLs from [clerk.dev](https://clerk.dev)
+- **DATABASE_URL**: Your database connection string
+- **GEMINI_API_KEY**: API key for Google Gemini AI integration from [Google AI Studio](https://aistudio.google.com/)
+
 ## 📈 Future Enhancement
 
 - Integration with major job boards
 - Advanced analytics dashboard
-- Personalized learning recommendations
 
 ## Contact
 Name:- PATHAN UBEDULLAKHAN HASANKHAN                                                           
 📜 Email:- ubedpathan818@gmail.com                                                                
 🌐 Portfolio:- https://ubedsportfolio.vercel.app/ 
-
 📱 Linkedin :- https://www.linkedin.com/in/ubed-pathan-35a715242/
-
 🤖 X :- https://x.com/mr_ubed08
 
 ## 📱 Screenshot
