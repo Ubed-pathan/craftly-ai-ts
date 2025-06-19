@@ -5,6 +5,7 @@ import QuizList from "./_components/quiz-list";
 
 export default async function InterviewPrepPage() {
   const assessments = await getAssessments();
+  
 
   return (
     <div>
