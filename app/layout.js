@@ -35,6 +35,7 @@ export default async function RootLayout({ children }) {
             <Toaster />
             <footer className="bg-muted/50 py-12">
               <div className="container mx-auto px-4 text-center text-gray-200">
+                <p>Developed by Ubedullakhan Pathan, github repo :- https://github.com/Ubed-pathan/craftlyAI, Linkedin: - https://www.linkedin.com/in/ubed-pathan-35a715242</p>
               </div>
             </footer>
           </ThemeProvider>
