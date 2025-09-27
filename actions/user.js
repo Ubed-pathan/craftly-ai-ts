@@ -18,7 +18,8 @@ export async function updateUser(data) {
   try {
     // Start a transaction to handle both operations
     const result = await db.$transaction(
-      async (tx) => {
+      // here tx is transaction agent acting as a proxy for db and it can access all the tables / model in database 
+      async (tx) => { 
         // First check if industry exists
         let industryInsight = await tx.industryInsight.findUnique({
           where: {

@@ -24,7 +24,7 @@ import { useRouter } from "next/navigation";
 
 export default function CoverLetterGenerator() {
   const router = useRouter();
-
+  
   const {
     register,
     handleSubmit,

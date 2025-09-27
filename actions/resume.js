@@ -92,7 +92,6 @@ export async function improveWithAI({ current, type }) {
     const improvedContent = response.text().trim();
     return improvedContent;
   } catch (error) {
-    console.error("Error improving content:", error);
     throw new Error("Failed to improve content");
   }
 }
