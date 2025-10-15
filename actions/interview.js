@@ -5,7 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 export async function generateQuiz() {
   const { userId } = await auth();
@@ -52,7 +52,6 @@ export async function generateQuiz() {
 
     return quiz.questions;
   } catch (error) {
-    console.error("Error generating quiz:", error);
     throw new Error("Failed to generate quiz questions");
   }
 }
@@ -122,7 +121,6 @@ export async function saveQuizResult(questions, answers, score) {
 
     return assessment;
   } catch (error) {
-    console.error("Error saving quiz result:", error);
     throw new Error("Failed to save quiz result");
   }
 }
@@ -149,7 +147,6 @@ export async function getAssessments() {
 
     return assessments;
   } catch (error) {
-    console.error("Error fetching assessments:", error);
     throw new Error("Failed to fetch assessments");
   }
 } 
