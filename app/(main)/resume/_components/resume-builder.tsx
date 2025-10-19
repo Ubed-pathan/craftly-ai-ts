@@ -140,6 +140,23 @@ export default function ResumeBuilder({ initialContent }: { initialContent?: str
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
               }
+              /* Headings with horizontal rule underneath */
+              #resume-pdf h1, #resume-pdf h2, #resume-pdf h3 {
+                border-bottom-width: 0.25px !important; /* very thin */
+                border-bottom-style: solid !important;
+                border-bottom-color: rgba(0,0,0,0.3) !important; /* lighter */
+                padding-bottom: 10px; /* space for descenders */
+                margin-bottom: 12px;
+              }
+              /* Horizontal rule styling */
+              #resume-pdf hr {
+                height: 0;
+                border: none;
+                border-top-width: 0.25px !important; /* very thin */
+                border-top-style: solid !important;
+                border-top-color: rgba(0,0,0,0.3) !important; /* lighter */
+                margin: 12px 0;
+              }
               #resume-pdf svg { fill: #000 !important; stroke: #000 !important; }
             `;
             doc.head.appendChild(style);
