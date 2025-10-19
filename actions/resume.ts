@@ -5,6 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { revalidatePath } from "next/cache";
 import type { Resume } from "@prisma/client";
+import type { ImproveKind } from "@/app/(main)/resume/types";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY ?? "");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -41,7 +42,7 @@ export async function getResume(): Promise<Resume | null> {
   return await db.resume.findUnique({ where: { userId: user.id } });
 }
 
-export async function improveWithAI({ current, type }: { current: string; type: string }): Promise<string> {
+export async function improveWithAI({ current, type }: { current: string; type: ImproveKind }): Promise<string> {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 

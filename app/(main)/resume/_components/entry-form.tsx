@@ -13,19 +13,17 @@ import { Sparkles, PlusCircle, X, Loader2 } from "lucide-react";
 import { improveWithAI } from "@/actions/resume";
 import { toast } from "sonner";
 import useFetch from "@/hooks/use-fetch";
-import type { z } from "zod";
+import type { Entry, EntryInput } from "../types";
+import type { ImproveKind } from "../types";
 
-type EntryInput = z.input<typeof entrySchema>;
-type Entry = z.output<typeof entrySchema>;
-
-const formatDisplayDate = (dateString: string) => {
+const formatDisplayDate = (dateString: string): string => {
   if (!dateString) return "";
   const date = parse(dateString, "yyyy-MM", new Date());
   return format(date, "MMM yyyy");
 };
 
 export function EntryForm({ type, entries, onChange }: { type: string; entries: Entry[]; onChange: (e: Entry[]) => void }) {
-  const [isAdding, setIsAdding] = useState(false);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
 
   const {
     register,
@@ -42,18 +40,19 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
       startDate: "",
       endDate: "",
       description: "",
-      current: false as any,
-    } as any,
+      current: false,
+    },
   });
 
-  const current = (watch("current" as any) as unknown as boolean) ?? false;
+  const current = watch("current") ?? false;
 
-  const handleAdd = handleValidation((data) => {
+  const handleAdd = handleValidation((data: EntryInput) => {
     const formattedEntry: Entry = {
       ...data,
-      startDate: formatDisplayDate(data.startDate as any),
-      endDate: (data as any).current ? "" : formatDisplayDate(data.endDate as any),
-    } as any;
+      current: Boolean(data.current),
+      startDate: formatDisplayDate(data.startDate),
+      endDate: data.current ? "" : formatDisplayDate(data.endDate ?? ""),
+    };
 
     onChange([...(entries || []), formattedEntry]);
 
@@ -61,7 +60,7 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
     setIsAdding(false);
   });
 
-  const handleDelete = (index: number) => {
+  const handleDelete = (index: number): void => {
     const newEntries = (entries || []).filter((_, i) => i !== index);
     onChange(newEntries);
   };
@@ -71,11 +70,11 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
     fn: improveWithAIFn,
     data: improvedContent,
     error: improveError,
-  } = useFetch(improveWithAI);
+  } = useFetch<string, [{ current: string; type: ImproveKind }]>(improveWithAI);
 
   useEffect(() => {
     if (improvedContent && !isImproving) {
-      setValue("description" as any, improvedContent as any);
+  setValue("description", improvedContent);
       toast.success("Description improved successfully!");
     }
     if (improveError) {
@@ -83,8 +82,8 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
     }
   }, [improvedContent, improveError, isImproving, setValue]);
 
-  const handleImproveDescription = async () => {
-    const description = watch("description" as any) as unknown as string;
+  const handleImproveDescription = async (): Promise<void> => {
+    const description = watch("description") ?? "";
     if (!description) {
       toast.error("Please enter a description first");
       return;
@@ -92,7 +91,7 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
 
     await improveWithAIFn({
       current: description,
-      type: type.toLowerCase(),
+      type: type.toLowerCase() as ImproveKind,
     });
   };
 
@@ -111,7 +110,7 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                {(item as any).current ? `${item.startDate} - Present` : `${item.startDate} - ${item.endDate}`}
+                {item.current ? `${item.startDate} - Present` : `${item.startDate} - ${item.endDate ?? ""}`}
               </p>
               <p className="mt-2 text-sm whitespace-pre-wrap">{item.description}</p>
             </CardContent>
@@ -151,11 +150,11 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
               <input
                 type="checkbox"
                 id="current"
-                {...register("current" as any)}
+                {...register("current")}
                 onChange={(e) => {
-                  setValue("current" as any, e.target.checked as any);
+                  setValue("current", e.target.checked);
                   if (e.target.checked) {
-                    setValue("endDate" as any, "" as any);
+                    setValue("endDate", "");
                   }
                 }}
               />
@@ -163,7 +162,7 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
             </div>
 
             <div className="space-y-2">
-              <Textarea
+                <Textarea
                 placeholder={`Description of your ${type.toLowerCase()}`}
                 className="h-32"
                 {...register("description")}
@@ -171,7 +170,7 @@ export function EntryForm({ type, entries, onChange }: { type: string; entries: 
               />
               {errors.description && <p className="text-sm text-red-500">{errors.description.message as string}</p>}
             </div>
-            <Button type="button" variant="ghost" size="sm" onClick={handleImproveDescription} disabled={isImproving || !watch("description" as any)}>
+            <Button type="button" variant="ghost" size="sm" onClick={handleImproveDescription} disabled={isImproving || !watch("description")}>
               {isImproving ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
