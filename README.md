@@ -73,7 +73,7 @@ craftlyai/
 │   ├── shared/           # Reusable components
 │   └── forms/            # Form components
 ├── lib/                  # Utility functions
-│   ├── utils.js          # Helper utilities
+│   ├── utils.ts          # Helper utilities
 │   └── ai/               # AI integration helpers
 ├── hooks/                # Custom React hooks
 ├── types/                # TypeScript type definitions
