@@ -16,7 +16,6 @@ import useFetch from "@/hooks/use-fetch";
 import { useUser } from "@clerk/nextjs";
 import { entriesToMarkdown } from "@/app/lib/helper";
 import { resumeSchema } from "@/app/lib/schema";
-import html2pdf from "html2pdf.js/dist/html2pdf.min.js";
 import type { z } from "zod";
 
 type ResumeForm = z.input<typeof resumeSchema>;
@@ -96,12 +95,56 @@ export default function ResumeBuilder({ initialContent }: { initialContent?: str
   const generatePDF = async () => {
     setIsGenerating(true);
     try {
+      const { default: html2pdf } = await import("html2pdf.js/dist/html2pdf.min.js");
       const element = document.getElementById("resume-pdf");
       const opt = {
         margin: [15, 15],
         filename: "resume.pdf",
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2 },
+        html2canvas: {
+          scale: 2,
+          backgroundColor: "#ffffff",
+          useCORS: true,
+          onclone: (doc: Document) => {
+            // Make sure the target is visible in the cloned DOM
+            const target = doc.getElementById("resume-pdf");
+            if (target) {
+              const parent = target.parentElement;
+              if (parent && parent.classList.contains("hidden")) parent.classList.remove("hidden");
+              (target as HTMLElement).style.display = "block";
+              (target as HTMLElement).style.visibility = "visible";
+              (target as HTMLElement).style.background = "#ffffff";
+            }
+
+            // Remove existing stylesheets to avoid oklch tokens from global CSS
+            try {
+              const toRemove = doc.head.querySelectorAll('link[rel="stylesheet"], style');
+              toRemove.forEach((n) => n.parentNode?.removeChild(n));
+            } catch {}
+
+            // Inject minimal safe styles (hex/rgb only)
+            const style = doc.createElement("style");
+            style.textContent = `
+              #resume-pdf, #resume-pdf * {
+                color: #000 !important;
+                background: #fff !important;
+                background-color: #fff !important;
+                border-color: #000 !important;
+                outline-color: #000 !important;
+                text-decoration-color: #000 !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+                background-image: none !important;
+                filter: none !important;
+                -webkit-filter: none !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+              }
+              #resume-pdf svg { fill: #000 !important; stroke: #000 !important; }
+            `;
+            doc.head.appendChild(style);
+          },
+        },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       } as any;
 
