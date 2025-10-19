@@ -83,7 +83,7 @@ const DashboardView = ({ insights }: { insights: Insights }) => {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{insights.marketOutlook}</div>
-            <p className="text-xs text-muted-foreground">Last updated {lastUpdatedDate}</p>
+            <p className="text-xs text-muted-foreground">Last updated: {lastUpdatedDate}</p>
           </CardContent>
         </Card>
 
