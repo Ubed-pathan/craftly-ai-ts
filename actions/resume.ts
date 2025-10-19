@@ -10,6 +10,7 @@ import type { ImproveKind } from "@/app/(main)/resume/types";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY ?? "");
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
+
 export async function saveResume(content: string): Promise<Resume> {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
