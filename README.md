@@ -4,7 +4,7 @@
 
 ## 📱 Live Application
 
-**[https://craftly-ai.vercel.app/](https://craftly-ai.vercel.app/)**
+**[https://craftly-ai-ts.vercel.app/](https://craftly-ai-ts.vercel.app/)**
 
 ![Next.js](https://img.shields.io/badge/Next.js-15+-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19+-blue?style=flat-square&logo=react)
@@ -27,8 +27,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/Ubed-pathan/craftlyAI
-cd craftlyai
+git clone https://github.com/Ubed-pathan/craftly-ai-ts
+cd craftly-ai-ts
 
 # Install dependencies
 npm install
@@ -65,9 +65,9 @@ craftlyai/
 │   ├── (auth)/           # Authentication routes
 │   ├── (main)/           # All pages
 │   ├── lib/              # Helper funtions
-|   ├── page.jsx          # Root page
-|   ├── not-found.jsx     # Not found
-│   └── layout.jsx        # Root layout
+|   ├── page.tsx          # Root page
+|   ├── not-found.tsx     # Not found
+│   └── layout.tsx        # Root layout
 ├── components/           # React components
 │   ├── ui/               # UI components
 │   ├── shared/           # Reusable components
@@ -83,13 +83,13 @@ craftlyai/
 │   └── schema.prisma     # Database schema
 ├── public/               # Static assets
 ├── styles/               # CSS styles
-├── middleware.js         # Next.js middleware (for Clerk auth)
+├── middleware.ts         # Next.js middleware (for Clerk auth)
 ├── inngest/              # Inngest serverless functions
 ├── .env.example          # Example environment variables
-├── .eslintrc.js          # ESLint configuration
-├── tailwind.config.js    # Tailwind CSS configuration  
+├── .eslintrc.ts          # ESLint configuration
+├── tailwind.config.ts    # Tailwind CSS configuration  
 ├── tsconfig.json         # TypeScript configuration
-├── next.config.js        # Next.js configuration
+├── next.config.ts        # Next.js configuration
 └── package.json          # Project dependencies
 ```
 
@@ -121,7 +121,7 @@ GEMINI_API_KEY=*****
 ## Contact
 ✨ Name:- PATHAN UBEDULLAKHAN HASANKHAN                                                           
 📜 Email:- ubedpathan818@gmail.com                                                                
-🌐 Portfolio:- https://ubedsportfolio.vercel.app/                
+🌐 Portfolio:- https://www.ubed.tech/                
 📱 Linkedin :- https://www.linkedin.com/in/ubed-pathan-35a715242/                           
 🤖 X :- https://x.com/mr_ubed08
 
