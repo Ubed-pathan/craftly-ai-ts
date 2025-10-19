@@ -140,6 +140,12 @@ export default function ResumeBuilder({ initialContent }: { initialContent?: str
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
               }
+              /* Links: remove underline/border styling in export */
+              #resume-pdf a, #resume-pdf a * {
+                text-decoration: none !important;
+                border: none !important;
+                border-bottom: none !important;
+              }
               /* Headings with horizontal rule underneath */
               #resume-pdf h1, #resume-pdf h2, #resume-pdf h3 {
                 border-bottom-width: 0.25px !important; /* very thin */
