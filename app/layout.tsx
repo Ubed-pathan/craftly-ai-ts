@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   Developed by <span className="font-semibold">Ubedullakhan Pathan</span>
                 </p>
                 <p className="text-sm">
-                  <a href="https://github.com/Ubed-pathan/craftlyAI" target="_blank" className="underline hover:text-white">
+                  <a href="https://github.com/Ubed-pathan/craftly-ai-ts" target="_blank" className="underline hover:text-white">
                     GitHub Repo
                   </a>{" "}
                   |{" "}
